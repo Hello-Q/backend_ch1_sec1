@@ -13,4 +13,4 @@ class User(models.Model):
     # 关注的星座
     focus_constellations = models.TextField(default='[]')
     # 关注的股票
-    focus_stock = models.TextField(default=[''])
+    focus_stock = models.TextField(default='[]')

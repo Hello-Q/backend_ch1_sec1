@@ -10,9 +10,10 @@ import json
 
 
 def test_session(request):
-    request.session['message'] = 'Test Django Session OK'
     response = wrap_json_response(code=ReturnCode.SUCCESS)
-    return JsonResponse(data=response, safe=False)
+
+    response = JsonResponse(data=response, safe=False)
+    return response
 
 
 class UserView(View, CommonResponseMixin):
@@ -21,7 +22,7 @@ class UserView(View, CommonResponseMixin):
             response = self.wrap_json_response(code=ReturnCode.SUCCESS)
             return JsonResponse(data=response, safe=False)
         open_id = request.session['open_id']
-        user = User.objects.filter(open_id=open_id)
+        user = User.objects.get(open_id=open_id)
         data = dict()
         data['focus'] = dict()
         data['focus']['city'] = json.loads(user.focus_cities)
@@ -32,20 +33,20 @@ class UserView(View, CommonResponseMixin):
 
     def post(self, request):
         if not already_authorize(request):
-            response = self.wrap_json_response(code=ReturnCode.SUCCESS)
+            response = self.wrap_json_response(data=0, code=ReturnCode.SUCCESS)
             return JsonResponse(data=response, safe=False)
         open_id = request.session['open_id']
-        user = User.objects.filter(open_id=open_id)
-
+        user = User.objects.get(open_id=open_id)
         received_body = request.body.decode('utf-8')
         received_body = eval(received_body)
-
         cities = received_body['city']
         stocks = received_body['stock']
         constellation = received_body['constellation']
-        user.focus_cities = cities
-        user.focus_stock = stocks
-        user.focus_constellations = constellation
+        user.focus_cities = json.dumps(cities)
+        user.focus_stock = json.dumps(stocks)
+        user.focus_constellations = json.dumps(constellation, ensure_ascii=False)
+        print(user.focus_constellations)
+        print(constellation)
         user.save()
         response = self.wrap_json_response(code=ReturnCode.SUCCESS, message='modify user info success.')
         return JsonResponse(data=response, safe=False)

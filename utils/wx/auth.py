@@ -3,10 +3,10 @@ import requests
 from backend_ch1_sec1 import settings
 
 
-def already_authorize(reqeust):
+def already_authorize(request):
     # 用户登录验证
     is_authorize = False
-    if requests.session['is_authorize']:
+    if request.session.get('is_authorize'):
         is_authorize = True
     return is_authorize
 
