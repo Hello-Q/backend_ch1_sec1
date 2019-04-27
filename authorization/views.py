@@ -44,9 +44,7 @@ class UserView(View, CommonResponseMixin):
         constellation = received_body['constellation']
         user.focus_cities = json.dumps(cities)
         user.focus_stock = json.dumps(stocks)
-        user.focus_constellations = json.dumps(constellation, ensure_ascii=False)
-        print(user.focus_constellations)
-        print(constellation)
+        user.focus_constellations = json.dumps(constellation)
         user.save()
         response = self.wrap_json_response(code=ReturnCode.SUCCESS, message='modify user info success.')
         return JsonResponse(data=response, safe=False)
@@ -87,3 +85,9 @@ def __authorize_by_code(request):
 
 def authorize(request):
     return __authorize_by_code(request)
+
+
+def logout(request):
+    request.session.clear()
+    response = wrap_json_response(code=ReturnCode.SUCCESS)
+    return JsonResponse(data=response, safe=False)
