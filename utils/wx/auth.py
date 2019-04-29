@@ -8,6 +8,7 @@ def already_authorize(request):
     is_authorize = False
     if request.session.get('is_authorize'):
         is_authorize = True
+    print(request.session.get('is_authorize'))
     return is_authorize
 
 

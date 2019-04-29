@@ -19,7 +19,7 @@ def test_session(request):
 class UserView(View, CommonResponseMixin):
     def get(self, request):
         if not already_authorize(request):
-            response = self.wrap_json_response(code=ReturnCode.SUCCESS)
+            response = self.wrap_json_response(code=ReturnCode.UNAUTHORIZED)
             return JsonResponse(data=response, safe=False)
         open_id = request.session['open_id']
         user = User.objects.get(open_id=open_id)
@@ -85,6 +85,18 @@ def __authorize_by_code(request):
 
 def authorize(request):
     return __authorize_by_code(request)
+
+
+def get_status(request):
+    if already_authorize(request):
+        data = {'is_authorized': 1}
+        print('认证成功')
+    else:
+        data = {'is_authorized': 0}
+        print('认证失败')
+    response = wrap_json_response(data=data, code=ReturnCode.SUCCESS)
+    print(response)
+    return JsonResponse(response, safe=False)
 
 
 def logout(request):

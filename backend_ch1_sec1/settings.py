@@ -124,4 +124,8 @@ STATIC_URL = '/static/'
 RESOURCES_DIR = os.path.join(BASE_DIR, 'resources')
 IMAGES_DIR = os.path.join(RESOURCES_DIR, 'images')
 
+# 微信密钥
 WX_APP_SECRET = 'f8d3c603cd2c38b4e64b9154084d9a0b'
+
+# session 超时时间
+SESSION_COOKIE_AGE = 60*60*24
