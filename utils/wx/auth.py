@@ -1,6 +1,7 @@
 import json
 import requests
 from backend_ch1_sec1 import settings
+from authorization.models import User
 
 
 def already_authorize(request):
@@ -10,6 +11,14 @@ def already_authorize(request):
         is_authorize = True
     print(request.session.get('is_authorize'))
     return is_authorize
+
+
+def get_user(request):
+    if not already_authorize(request):
+        raise Exception('not authorized request')
+    open_id = request.session.get('open_id')
+    user = User.objects.filter(open_id=open_id)[0]
+    return user
 
 
 def c2s(appid, code):

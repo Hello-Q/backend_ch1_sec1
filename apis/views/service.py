@@ -1,6 +1,7 @@
 from utils.response import *
-from thirdparty import  juhe, qiubai
+from thirdparty import juhe, qiubai
 from django.http import JsonResponse
+from utils.wx.auth import already_authorize, get_user
 
 
 constellations = ['巨蟹座', '白羊座']
