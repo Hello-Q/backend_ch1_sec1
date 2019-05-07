@@ -14,3 +14,9 @@ class User(models.Model):
     focus_constellations = models.TextField(default='[]')
     # 关注的股票
     focus_stock = models.TextField(default='[]')
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['nickname']),  # 索引
+            models.Index(fields=['open_id', 'nickname'])  # 复合索引
+        ]

@@ -44,6 +44,7 @@ def constellation(cons_name):
     url = api + '?' + params
     response = requests.get(url)
     data = json.loads(response.text)
+    print(data)
     return {
         'name': cons_name,
         'text': data['summary'],
