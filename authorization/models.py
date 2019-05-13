@@ -1,5 +1,5 @@
 from django.db import models
-
+from apis.models import App
 # Create your models here.
 
 
@@ -14,6 +14,11 @@ class User(models.Model):
     focus_constellations = models.TextField(default='[]')
     # 关注的股票
     focus_stock = models.TextField(default='[]')
+    # 个人应用
+    menu = models.ManyToManyField(App)
+
+    def __str__(self):
+        return self.nickname
 
     class Meta:
         indexes = [
