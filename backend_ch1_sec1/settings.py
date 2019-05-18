@@ -94,7 +94,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'backend',
-        'USER': 'root',
+        'USER': 'django',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': '3306',
@@ -146,3 +146,7 @@ WX_APP_SECRET = 'f8d3c603cd2c38b4e64b9154084d9a0b'
 
 # session 超时时间
 SESSION_COOKIE_AGE = 60*60*24
+
+AppEnthSLASH = False
+
+CONN_MAX_AGE = 60

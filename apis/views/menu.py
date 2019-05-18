@@ -26,6 +26,18 @@ def get_menu(request):
     return JsonResponse(data=response, safe=False)
 
 
+class MenuList(View, CommonResponseMixin):
+    def get(self, request):
+        menu_list = App.objects.all()
+        app_list = list()
+        for app in menu_list:
+            app_list.append(app.to_dict())
+            print(type(app))
+            print(type(app.to_dict()))
+        response = self.wrap_json_response(data=app_list, code=ReturnCode.SUCCESS)
+        return JsonResponse(data=response, safe=False)
+
+
 class UserMenu(View, CommonResponseMixin):
     def get(self, request):
         if not already_authorize(request):
@@ -34,10 +46,9 @@ class UserMenu(View, CommonResponseMixin):
         open_id = request.session.get('open_id')
         user = User.objects.get(open_id=open_id)
         menu_list = user.menu.all()
-
         user_menu = list()
         for app in menu_list:
-            user_menu.append({'app': app.to_dict()})
+            user_menu.append(app.to_dict())
         response = self.wrap_json_response(data=user_menu, code=ReturnCode.SUCCESS)
         return JsonResponse(data=response, safe=False)
 
