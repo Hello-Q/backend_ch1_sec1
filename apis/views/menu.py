@@ -11,6 +11,7 @@ from utils.response import CommonResponseMixin, ReturnCode
 from utils.wx.auth import already_authorize, get_user
 from apis.models import App
 
+
 def init_app_data():
     data_file = os.path.join(settings.BASE_DIR, 'app.yaml')
     with open(data_file, 'r', encoding='utf-8') as f:

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django
+django.utils
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -149,4 +151,45 @@ SESSION_COOKIE_AGE = 60*60*24
 
 AppEnthSLASH = False
 
-CONN_MAX_AGE = 60
+LOG_DIR = os.path.join(BASE_DIR, 'log')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+LOGGING = {
+    'version': 1,
+    # 日志格式器
+    'formatters': {  # 格式化器
+        'standard': {  # 格式化器名称
+            'format': '%(asctime)s [%(threadName)s: %(thread)d]'
+            '%(pathname)s: %(funcName)s: %(lineno)d %(levelname)s - %(message)s'
+        }
+    },
+    'filters': {  # 过滤器
+        'test': {  # 过滤器名称-自定义的过滤器
+            '()': 'ops.TestFilter'  # 自定义的过滤器
+        }
+    },
+    'handlers': {
+        'console_handler': {  # 处理器名称
+            'level': 'INFO',  # 处理log级别
+            'class': 'logging.StreamHandler',  # 处理器类-流处理器, 直接在控制台打印信息
+            'formatter': 'standard'  # 指定使用的格式化器
+        },
+        'file_handler': {  # 处理器名称
+            'level': 'DEBUG',  # 处理log级别
+            'class': 'logging.handlers.RotatingFileHandler',  # 处理器类-文件,此类自动将log文件分割
+            'filename': os.path.join(LOG_DIR, 'backend.log'),  # 文件存放路径及名称
+            'maxBytes': 1024*1024*5,  # 单个log文件大小
+            'backupCount': 5,  # 文件记录数量
+            'formatter': 'standard',  # 指定使用的格式化器
+            'encoding': 'utf-8'  # 文件编码格式
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console_handler', 'file_handler'],
+            'filters': ['test'],
+            'level': 'DEBUG'
+        }
+    }
+}
