@@ -44,13 +44,17 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+
+    # 'django.middleware.cache.UpdateCacheMiddleware',  # 配置全站缓存
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware'  # 配置全站缓存
 ]
 
 ROOT_URLCONF = 'backend_ch1_sec1.urls'
@@ -126,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -154,10 +158,10 @@ AppEnthSLASH = False
 LOG_DIR = os.path.join(BASE_DIR, 'log')
 if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)
-
+'''
+# 日志设置
 LOGGING = {
     'version': 1,
-    # 日志格式器
     'formatters': {  # 格式化器
         'standard': {  # 格式化器名称
             'format': '%(asctime)s [%(threadName)s: %(thread)d]'
@@ -169,14 +173,14 @@ LOGGING = {
             '()': 'ops.TestFilter'  # 自定义的过滤器
         }
     },
-    'handlers': {
+    'handlers': {  # 处理器
         'console_handler': {  # 处理器名称
-            'level': 'INFO',  # 处理log级别
+            'level': 'DEBUG',  # 处理log级别
             'class': 'logging.StreamHandler',  # 处理器类-流处理器, 直接在控制台打印信息
             'formatter': 'standard'  # 指定使用的格式化器
         },
         'file_handler': {  # 处理器名称
-            'level': 'DEBUG',  # 处理log级别
+            'level': 'WARNING',  # 处理log级别
             'class': 'logging.handlers.RotatingFileHandler',  # 处理器类-文件,此类自动将log文件分割
             'filename': os.path.join(LOG_DIR, 'backend.log'),  # 文件存放路径及名称
             'maxBytes': 1024*1024*5,  # 单个log文件大小
@@ -185,11 +189,64 @@ LOGGING = {
             'encoding': 'utf-8'  # 文件编码格式
         }
     },
-    'loggers': {
+    'loggers': {  # 日志实例
         'django': {
-            'handlers': ['console_handler', 'file_handler'],
-            'filters': ['test'],
-            'level': 'DEBUG'
+            'handlers': ['console_handler', 'file_handler'],  # 选择日志处理器
+            'filters': ['test'],  # 日志过滤器
+            'level': 'DEBUG'  # 处理日志级别
         }
     }
 }
+'''
+# 缓存设置
+'''
+# Memcached 缓存配置
+CACHES = {
+    # 使用python-memcached模块链接memcached
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        # 使用pylibmc块链接memcached
+        # 'default': 'django.core.cache.backends.memcached.PyLibMCCache'
+        # 配置地址
+        'LOCATION': [
+            '127.0.0.1:111',
+            '127.0.0.1:222',
+        ]
+    }
+}
+'''
+
+'''
+# 数据库缓存配置
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',  # 缓存引擎
+        'LOCATION': 'my_cache_table'  # 缓存表名称
+    }
+}
+'''
+'''
+# 文件系统缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'e"/django',  # 缓存文件路径
+    }
+}
+'''
+
+# 本地内存缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique_snowflake'  # 缓存名称标记
+    }
+}
+'''
+# 虚拟缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+'''

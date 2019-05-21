@@ -6,9 +6,11 @@ from utils.response import ReturnCode
 from django.views import View
 from utils.wx.auth import already_authorize
 from authorization.models import User
+from django.views.decorators.cache import cache_page
 
 
 class Weather(View, CommonResponseMixin):
+
     def get(self, request):
         if not already_authorize(request):
             response = self.wrap_json_response(code=ReturnCode.UNAUTHORIZED)
