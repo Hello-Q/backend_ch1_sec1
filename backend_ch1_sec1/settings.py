@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 新应用
     'apis',
     'authorization',
+    # 第三方应用
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'module.middleware.StatisticsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -158,7 +162,7 @@ AppEnthSLASH = False
 LOG_DIR = os.path.join(BASE_DIR, 'log')
 if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)
-'''
+
 # 日志设置
 LOGGING = {
     'version': 1,
@@ -166,6 +170,9 @@ LOGGING = {
         'standard': {  # 格式化器名称
             'format': '%(asctime)s [%(threadName)s: %(thread)d]'
             '%(pathname)s: %(funcName)s: %(lineno)d %(levelname)s - %(message)s'
+        },
+        'simple': {
+            'format': '%(asctime)s %(message)s'
         }
     },
     'filters': {  # 过滤器
@@ -180,12 +187,21 @@ LOGGING = {
             'formatter': 'standard'  # 指定使用的格式化器
         },
         'file_handler': {  # 处理器名称
-            'level': 'WARNING',  # 处理log级别
+            'level': 'INFO',  # 处理log级别
             'class': 'logging.handlers.RotatingFileHandler',  # 处理器类-文件,此类自动将log文件分割
             'filename': os.path.join(LOG_DIR, 'backend.log'),  # 文件存放路径及名称
             'maxBytes': 1024*1024*5,  # 单个log文件大小
             'backupCount': 5,  # 文件记录数量
             'formatter': 'standard',  # 指定使用的格式化器
+            'encoding': 'utf-8'  # 文件编码格式
+        },
+        'statistics_handler': {
+            'level': 'DEBUG',  # 处理log级别
+            'class': 'logging.handlers.RotatingFileHandler',  # 处理器类-文件,此类自动将log文件分割
+            'filename': os.path.join(LOG_DIR, 'statistics.log'),  # 文件存放路径及名称
+            'maxBytes': 1024 * 1024 * 5,  # 单个log文件大小
+            'backupCount': 5,  # 文件记录数量
+            'formatter': 'simple',  # 指定使用的格式化器
             'encoding': 'utf-8'  # 文件编码格式
         }
     },
@@ -194,10 +210,14 @@ LOGGING = {
             'handlers': ['console_handler', 'file_handler'],  # 选择日志处理器
             'filters': ['test'],  # 日志过滤器
             'level': 'DEBUG'  # 处理日志级别
+        },
+        'statistics': {
+            'handlers': ['statistics_handler'],
+            'level': 'DEBUG'
         }
     }
 }
-'''
+
 # 缓存设置
 '''
 # Memcached 缓存配置
@@ -250,3 +270,20 @@ CACHES = {
     }
 }
 '''
+
+# 定时任务配置
+CRONJOBS = [
+    ('*/1 * * * *', 'cron.jobs.demo')
+]
+
+# Email config
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = '13061039196@163.com'
+EMAIL_HOST_PASSWORD = 'ZYQ123456'
+EMAIL_FROM = 'Django后台'
+DEFAULT_EMAIL_FROM = EMAIL_HOST_USER
+
+# 统计分隔符
+STATISTICS_SPLIT_FLAG = '||'

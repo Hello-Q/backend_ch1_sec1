@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import weather, menu, image, service
+from .views import weather, menu, image, service, test
 from django.views.decorators.cache import cache_page
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('stock/', service.stock),
     path('constellation/', service.Constellation.as_view()),
     path('joke/', service.joke),
+    path('test/', test.test),
 ]

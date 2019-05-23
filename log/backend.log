@@ -1,18 +1,80 @@
-2019-05-21 16:55:49,988 [Thread-7: 140426597435136]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /api/v1.0/service/weather/
+2019-05-22 14:17:20,524 [Dummy-6: 139844433417984]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __init__: 10 INFO - build TestMiddleware
+2019-05-22 14:19:18,156 [Dummy-6: 139959753996032]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __init__: 10 INFO - build TestMiddleware
+2019-05-22 14:19:37,300 [Thread-7: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:19:37,326 [Thread-7: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:19:37,326 [Thread-7: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /
+2019-05-22 14:19:37,327 [Thread-7: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET / HTTP/1.1" 404 2044
+2019-05-22 14:19:38,252 [Thread-8: 139959711627008]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:19:38,265 [Thread-8: 139959711627008]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:19:38,265 [Thread-8: 139959711627008]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /favicon.ico
+2019-05-22 14:19:38,267 [Thread-8: 139959711627008]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET /favicon.ico HTTP/1.1" 404 2095
+2019-05-22 14:19:50,534 [Thread-11: 139959711627008]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:19:50,544 [Thread-11: 139959711627008]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:19:50,546 [Thread-11: 139959711627008]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /api/v1.0.test
+2019-05-22 14:19:50,547 [Thread-11: 139959711627008]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET /api/v1.0.test HTTP/1.1" 404 2101
+2019-05-22 14:19:56,099 [Thread-13: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:19:56,110 [Thread-13: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:19:56,112 [Thread-13: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /api/v1.0/test
+2019-05-22 14:19:56,113 [Thread-13: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET /api/v1.0/test HTTP/1.1" 404 2317
+2019-05-22 14:20:06,921 [Thread-15: 139959711627008]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/test HTTP/1.1" 301 0
+2019-05-22 14:20:06,931 [Thread-16: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:20:06,931 [Thread-16: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:20:06,932 [Thread-16: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/test/ HTTP/1.1" 200 5
+2019-05-22 14:20:17,820 [Thread-17: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:20:17,821 [Thread-17: 139959720281856]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:20:17,821 [Thread-17: 139959720281856]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/test/ HTTP/1.1" 200 5
+2019-05-22 14:20:33,429 [Dummy-6: 140624074372864]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __init__: 10 INFO - build TestMiddleware
+2019-05-22 14:20:34,793 [Thread-7: 140624040658688]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:20:34,796 [Thread-7: 140624040658688]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:20:34,797 [Thread-7: 140624040658688]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/test/ HTTP/1.1" 200 5
+2019-05-22 14:21:18,873 [Dummy-6: 140083546167040]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __init__: 10 INFO - build TestMiddleware
+2019-05-22 14:21:20,416 [Thread-7: 140083310884608]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 13 INFO - 请求之前
+2019-05-22 14:21:20,422 [Thread-7: 140083310884608]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __call__: 15 INFO - 请求之后
+2019-05-22 14:21:20,424 [Thread-7: 140083310884608]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/test/ HTTP/1.1" 200 4
+2019-05-22 14:25:16,275 [Dummy-6: 139743471859456]/home/zhang/python/study/backend_ch1_sec1/ops/middlewaredemo.py: __init__: 10 INFO - build TestMiddleware
+2019-05-22 16:23:13,260 [Thread-7: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /
 Traceback (most recent call last):
   File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/views/generic/base.py", line 89, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/utils/decorators.py", line 134, in _wrapped_view
-    result = middleware.process_request(request)
-  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/middleware/cache.py", line 128, in process_request
-    if request.method not in ('GET', 'HEAD'):
-AttributeError: 'Weather' object has no attribute 'method'
-2019-05-21 16:55:50,175 [Thread-7: 140426597435136]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "POST /api/v1.0/service/weather/ HTTP/1.1" 500 84927
+  File "/home/zhang/python/study/backend_ch1_sec1/module/middleware.py", line 23, in __call__
+    content_list.append(('full_path[$s]' % full_path))
+TypeError: not all arguments converted during string formatting
+2019-05-22 16:23:13,395 [Thread-7: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "GET / HTTP/1.1" 500 62039
+2019-05-22 16:23:16,036 [Thread-8: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhang/python/study/backend_ch1_sec1/module/middleware.py", line 23, in __call__
+    content_list.append(('full_path[$s]' % full_path))
+TypeError: not all arguments converted during string formatting
+2019-05-22 16:23:16,335 [Thread-8: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "GET / HTTP/1.1" 500 62038
+2019-05-22 16:23:22,372 [Thread-9: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhang/python/study/backend_ch1_sec1/module/middleware.py", line 23, in __call__
+    content_list.append(('full_path[$s]' % full_path))
+TypeError: not all arguments converted during string formatting
+2019-05-22 16:23:22,916 [Thread-9: 139865329841920]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "GET /favicon.ico HTTP/1.1" 500 62094
+2019-05-22 16:25:26,171 [Thread-7: 139777294726912]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhang/python/study/backend_ch1_sec1/module/middleware.py", line 23, in __call__
+    content_list.append('full_path[$s]' % full_path)
+TypeError: not all arguments converted during string formatting
+2019-05-22 16:25:26,270 [Thread-7: 139777294726912]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "GET / HTTP/1.1" 500 62169
+2019-05-22 16:25:33,156 [Thread-8: 139777286334208]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py: handle_uncaught_exception: 118 ERROR - Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhang/python/study/backend_ch1_sec1/module/middleware.py", line 23, in __call__
+    content_list.append('full_path[$s]' % full_path)
+TypeError: not all arguments converted during string formatting
+2019-05-22 16:25:33,273 [Thread-8: 139777286334208]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 ERROR - "GET /favicon.ico HTTP/1.1" 500 62353
+2019-05-22 16:26:13,134 [Thread-7: 139941308790528]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /
+2019-05-22 16:26:13,136 [Thread-7: 139941308790528]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET / HTTP/1.1" 404 2038
+2019-05-22 16:26:54,811 [Thread-9: 139941300397824]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/stock HTTP/1.1" 301 0
+2019-05-22 16:26:55,390 [Thread-10: 139941308790528]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 INFO - "GET /api/v1.0/service/stock/ HTTP/1.1" 200 867
+2019-05-22 16:26:56,008 [Thread-11: 139941308790528]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/handlers/base.py: get_response: 93 WARNING - Not Found: /favicon.ico
+2019-05-22 16:26:56,009 [Thread-11: 139941308790528]/home/zhang/python/.virtualenvs/django2.0/lib/python3.6/site-packages/django/core/servers/basehttp.py: log_message: 124 WARNING - "GET /favicon.ico HTTP/1.1" 404 2089
